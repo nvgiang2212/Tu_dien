@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tu dien</title>
+	<style>
+		body { text-align: center; }
+	</style>
+</head>
+<body>
+	<br>
+	<input type="text" id="txtInput"><br><br>
+	<input type="button" id="btnSearch" onclick="fSearch()" value="Translate"><br>
+	<h3 id="trans"></h3>
+	
+	<script>
+		let dicEng = ["all", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "apple", "orange", "lemon", "waterlemon", "banana"];
+		let dicVie = ["Tất Cả", "Một", "Hai", "Ba", "Bốn", "Năm", "Sáu", "Bảy", "Tám", "Chín", "Mười", "Quả Táo", "Quả Cam", "Quả Chanh", "Dưa Hấu", "Quả Chuối"];
+
+		function fSearch() {
+			let result = "";
+			let x = document.getElementById('txtInput').value;
+			// Duyệt cả mảng dicEng rồi kiểm tra xem phần tử của x có trong dicEng không, nếu có thì hiển thị phần tử tương ứng mỗi vị trí i
+			for (let i=0; i<dicEng.length; i++) {
+				if (x === dicEng[i]) {
+					result = dicEng[i] + " -------------------------------- " + dicVie[i];
+					break;
+				} else {
+					result = "Not found";
+				}
+			}
+			document.getElementById('trans').innerHTML = result;
+		}
+		
+	</script>
+</body>
+</html>
